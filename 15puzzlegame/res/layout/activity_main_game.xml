@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:dither="true"
+    tools:context="com.onaentertainment.onafifteenpuzzle.MainGameActivity" xmlns:app="http://schemas.android.com/apk/res/com.onaentertainment.onafifteenpuzzle">
+    
+    <com.onaentertainment.onafifteenpuzzle.BoardView
+        android:id="@+id/board"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+    	android:layout_centerInParent="true"
+    	android:background="@drawable/board"/>	
+   
+    <View
+        android:id="@+id/board_top"
+        android:layout_width="300dp"
+        android:layout_height="33dp"
+        android:background="@drawable/board_top"
+        android:layout_above="@id/board"
+        android:layout_alignLeft="@id/board"/>
+   
+    <View
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:background="@drawable/board_top_left"
+        android:layout_toLeftOf="@id/board"
+        android:layout_alignTop="@id/board_top"/>
+   
+    <View
+        android:layout_width="33dp"
+        android:layout_height="300dp"
+        android:background="@drawable/board_left"
+        android:layout_toLeftOf="@id/board"
+        android:layout_alignTop="@id/board"/>
+   
+    <View
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:background="@drawable/board_top_right"
+        android:layout_toRightOf="@id/board"
+        android:layout_alignTop="@id/board_top"/>
+    
+    <View
+        android:layout_width="33dp"
+        android:layout_height="300dp"
+        android:background="@drawable/board_right"
+        android:layout_alignTop="@id/board"
+        android:layout_toRightOf="@id/board"/>
+   
+    <View
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:background="@drawable/board_bottom_left"
+        android:layout_toLeftOf="@id/board"
+        android:layout_below="@id/board"/>
+    
+    <View
+        android:layout_width="300dp"
+        android:layout_height="33dp"
+        android:background="@drawable/board_bottom"
+        android:layout_alignLeft="@id/board"
+        android:layout_below="@id/board"/>
+   
+    <View
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:background="@drawable/board_bottom_right"
+        android:layout_toRightOf="@id/board"
+        android:layout_below="@id/board"/>
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+   		android:gravity="top"
+		android:layout_gravity="center"
+		android:layout_centerInParent="true"
+		android:layout_above="@id/board"
+        android:orientation="vertical"
+        android:onClick="showBestScores">
+        
+        <LinearLayout
+            android:id="@+id/timerBackground"
+	        android:layout_width="120dp"
+	        android:layout_height="60dp"
+	        android:layout_centerInParent="true"
+	        android:orientation="vertical"
+	        android:background="@drawable/timer_background_classic"
+	        android:padding="0dp">
+
+	        <com.onaentertainment.onafifteenpuzzle.TimerView
+	            xmlns:timer="http://schemas.android.com/apk/res/com.onaentertainment.onafifteenpuzzle"
+	            timer:timer_paddings="9"
+	            android:id="@+id/simpleTimer"
+	            android:layout_marginTop="3dp"
+	            android:layout_width="match_parent"
+	            android:layout_height="30dp"
+	        	android:onClick="showBestScores"/>
+	
+	        <com.onaentertainment.onafifteenpuzzle.MovesView
+	            xmlns:moves="http://schemas.android.com/apk/res/com.onaentertainment.onafifteenpuzzle"
+	            moves:moves_paddings="10"
+	            android:id="@+id/moves"
+	            android:layout_width="match_parent"
+	            android:layout_height="20dp"
+	        	android:onClick="showBestScores"/>
+        
+        </LinearLayout>
+        
+        <com.onaentertainment.onafifteenpuzzle.LabelView
+             xmlns:label="http://schemas.android.com/apk/res/com.onaentertainment.onafifteenpuzzle"
+	         android:id="@+id/highscore_tip"
+	         android:layout_width="match_parent"
+	         android:layout_height="30dp"
+	         android:translationY="-10dp"
+	         android:layout_below="@id/timerBackground"
+	         label:background="@drawable/highscoretip"
+	         label:alignCenter="true" />
+        
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="80dp"
+	    android:layout_height="match_parent"
+	    android:layout_below="@id/board"
+		android:layout_centerInParent="true">
+        
+	    <View
+		    android:id="@+id/menuButton"
+	        android:layout_width="80dp"
+	        android:layout_height="80dp"
+	    	android:onClick="showHideMenu"
+	    	android:visibility="invisible"
+			android:layout_centerInParent="true"/>
+    
+    </RelativeLayout>    
+	    
+	<LinearLayout 
+        android:id="@+id/startGameOption"
+        android:layout_width="280dp"
+        android:layout_height="92dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/board"
+       	android:paddingLeft="10dp"
+       	android:paddingRight="10dp"
+        android:orientation="vertical">
+		    
+	        <com.onaentertainment.onafifteenpuzzle.LabelView
+	            xmlns:label="http://schemas.android.com/apk/res/com.onaentertainment.onafifteenpuzzle"
+	            android:id="@+id/button_start_new_game"
+	            android:layout_width="match_parent"
+	            android:layout_height="30dp"
+	            android:layout_gravity="center"
+	            android:layout_marginBottom="6dp"
+	            android:layout_marginTop="6dp"
+            	android:layout_marginLeft="2dp"
+	            label:background="@drawable/label_start_new_game"
+	            label:alignCenter="false" />
+
+	        <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="50dp"
+	        	android:layout_gravity="center">
+	            
+		        <Button
+		            android:id="@+id/button_three_by_three"
+		            android:layout_width="85dp"
+		            android:layout_height="match_parent"
+		            android:layout_alignParentLeft="true"
+	            	android:background="@drawable/button_three_by_three_inactive_classic"
+		            android:onClick="switchDimensions" />
+
+		        <Button
+		            android:id="@+id/button_four_by_four"
+		            android:layout_width="85dp"
+		            android:layout_height="match_parent"
+		            android:layout_centerInParent="true"
+	            	android:background="@drawable/button_four_by_four_inactive_classic"
+		            android:onClick="switchDimensions" />
+		
+		        <Button
+		            android:id="@+id/button_five_by_five"
+		            android:layout_width="85dp"
+		            android:layout_height="match_parent"
+		            android:layout_alignParentRight="true"
+	            	android:background="@drawable/button_five_by_five_inactive_classic"
+		            android:onClick="switchDimensions" />
+		    </RelativeLayout>
+    </LinearLayout>
+	    
+	<LinearLayout 
+        android:id="@+id/soundOption"
+        android:layout_width="280dp"
+        android:layout_height="92dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/startGameOption"
+   		android:paddingLeft="10dp"
+   		android:paddingRight="10dp"
+   		android:paddingTop="0dp"
+        android:orientation="vertical">
+	        
+		<RelativeLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="30dp"
+        	android:layout_gravity="center"
+	        android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="2dp">
+           
+            <com.onaentertainment.onafifteenpuzzle.LabelView
+	            xmlns:label="http://schemas.android.com/apk/res/com.onaentertainment.onafifteenpuzzle"
+	            android:id="@+id/label_sound"
+	            android:layout_width="88dp"
+	            android:layout_height="match_parent"
+	            android:layout_alignParentLeft="true"
+	            label:background="@drawable/label_sound"
+	            label:alignCenter="false" />
+	
+	        <com.onaentertainment.onafifteenpuzzle.LabelView
+	            xmlns:label="http://schemas.android.com/apk/res/com.onaentertainment.onafifteenpuzzle"
+	            android:id="@+id/label_music"
+	            android:layout_width="85dp"
+	            android:layout_height="match_parent"
+	            android:layout_alignParentRight="true"
+	            label:background="@drawable/label_music"
+	            label:alignCenter="false" />
+       	</RelativeLayout>
+        
+        <RelativeLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="50dp"
+        	android:layout_gravity="center">
+     
+	        <Button
+	            android:id="@+id/button_soundOnOff"
+	            android:layout_width="85dp"
+	            android:layout_height="match_parent"
+	            android:layout_alignParentLeft="true"
+	            android:background="@drawable/button_on_classic"
+	            android:onClick="soundOnOff" />
+	
+	        <Button
+	            android:id="@+id/button_musicOnOff"
+	            android:layout_width="85dp"
+	            android:layout_height="match_parent"
+	            android:layout_alignParentRight="true"
+	            android:background="@drawable/button_on_classic"
+	            android:onClick="musicOnOff" />
+        </RelativeLayout>
+	
+    </LinearLayout>
+	    
+	<LinearLayout        
+	    android:id="@+id/colorOption"
+        android:layout_width="280dp"
+        android:layout_height="92dp"
+        android:layout_below="@id/soundOption"
+        android:layout_centerInParent="true"
+       	android:paddingLeft="10dp"
+       	android:paddingRight="10dp"
+        android:orientation="vertical">
+	    
+		<com.onaentertainment.onafifteenpuzzle.LabelView
+            xmlns:label="http://schemas.android.com/apk/res/com.onaentertainment.onafifteenpuzzle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+           	android:layout_marginBottom="6dp"
+           	android:layout_marginTop="6dp"
+            android:layout_marginLeft="2dp"
+            label:background="@drawable/label_color_scheme"
+            label:alignCenter="false"/>
+        
+        <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="50dp"
+        	android:layout_gravity="center"
+	        android:orientation="horizontal">
+            
+	        <Button
+	            android:id="@+id/button_color_classic"
+	            android:layout_width="50dp"
+	            android:layout_height="50dp"
+	            android:layout_marginRight="20dp"
+	            android:onClick="switchColorToClassic"
+	            android:background="@drawable/button_color_active_classic" />
+	
+	        <Button
+	            android:id="@+id/button_color_red"
+	            android:layout_width="50dp"
+	            android:layout_height="50dp"
+	            android:layout_marginRight="20dp"
+	            android:onClick="switchColorToRed"
+	            android:background="@drawable/button_color_inactive_red" />
+	
+	        <Button
+	            android:id="@+id/button_color_blue"
+	            android:layout_width="50dp"
+	            android:layout_height="50dp"
+	            android:layout_marginRight="20dp"
+	            android:onClick="switchColorToBlue"
+	            android:background="@drawable/button_color_inactive_blue" />
+	
+	        <Button
+	            android:id="@+id/button_color_purple"
+	            android:layout_width="50dp"
+	            android:layout_height="50dp"
+	            android:onClick="switchColorToPurple"
+	            android:background="@drawable/button_color_inactive_purple" />
+	    </LinearLayout>
+	</LinearLayout>
+	    
+    <View
+        android:id="@+id/menuClose"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@id/board"
+        android:layout_alignRight="@id/board"
+        android:onClick="showHideMenu"
+        android:visibility="invisible"
+        android:background="@drawable/button_cross_light" />
+	
+    <RelativeLayout
+        android:id="@+id/best_scores"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    	android:background="#55000000"
+        android:onClick="hideBestScores"
+        android:visibility="invisible" >
+        
+	    <LinearLayout
+	        android:id="@+id/best_scores_body"
+	        android:layout_width="273dp"
+	        android:layout_height="200dp"
+	        android:layout_centerInParent="true"
+	        android:layout_gravity="center"
+	        android:orientation="vertical"
+	        android:onClick="doNothing"
+	        android:background="@drawable/highscore_body">
+	
+	        <com.onaentertainment.onafifteenpuzzle.LabelView
+	            xmlns:label="http://schemas.android.com/apk/res/com.onaentertainment.onafifteenpuzzle"
+	            android:layout_width="match_parent"
+	            android:layout_height="30dp"
+		        android:layout_marginBottom="10dp"
+		        android:layout_marginTop="10dp"
+	            label:background="@drawable/label_best_time"
+	            label:alignCenter="true" />
+	        
+	        <com.onaentertainment.onafifteenpuzzle.TimerView
+	            xmlns:timer="http://schemas.android.com/apk/res/com.onaentertainment.onafifteenpuzzle"
+	            android:id="@+id/bestTime"
+	            android:layout_width="120dp"
+	            android:layout_height="35dp"
+	            android:layout_gravity="center" />
+		        
+	        <com.onaentertainment.onafifteenpuzzle.LabelView
+	            xmlns:label="http://schemas.android.com/apk/res/com.onaentertainment.onafifteenpuzzle"
+	            android:layout_width="match_parent"
+	            android:layout_height="30dp"
+		        android:layout_marginBottom="10dp"
+		        android:layout_marginTop="10dp"
+	            label:background="@drawable/label_least_moves" 
+	            label:alignCenter="true"/>
+		        
+	        <com.onaentertainment.onafifteenpuzzle.MovesView
+	            xmlns:moves="http://schemas.android.com/apk/res/com.onaentertainment.onafifteenpuzzle"
+	            android:id="@+id/bestMoves"
+	            android:layout_width="120dp"
+	            android:layout_height="35dp"
+	            android:layout_gravity="center" />
+	        
+	    </LinearLayout>
+        
+        <LinearLayout 
+            android:id="@+id/best_scores_tabs"
+	        android:layout_width="273dp"
+	        android:layout_height="38dp"
+	        android:layout_above="@id/best_scores_body"
+	        android:layout_alignLeft="@id/best_scores_body">
+		
+		    <Button
+            	android:id="@+id/highscore_3x3"
+	            android:layout_width="91dp"
+	            android:layout_height="match_parent"
+	            android:onClick="switchHighscores"
+	            android:background="@drawable/highscore_3x3_inactive" />
+	
+	        <Button
+            	android:id="@+id/highscore_4x4"
+	            android:layout_width="91dp"
+	            android:layout_height="match_parent"
+	            android:onClick="switchHighscores"
+	            android:background="@drawable/highscore_4x4_inactive" />
+	
+	        <Button
+            	android:id="@+id/highscore_5x5"
+	            android:layout_width="91dp"
+	            android:layout_height="match_parent"
+	            android:onClick="switchHighscores"
+	            android:background="@drawable/highscore_5x5_inactive" />
+        </LinearLayout>
+        
+        <View
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:translationX="-5dp"
+            android:translationY="10dp"
+            android:layout_toRightOf="@id/best_scores_tabs"
+            android:layout_above="@id/best_scores_tabs"
+            android:onClick="hideBestScores"
+            android:background="@drawable/button_cross_light" />
+        
+	</RelativeLayout>
+	
+    <RelativeLayout 
+        android:id="@+id/winscreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+        
+	    <LinearLayout 
+	        android:id="@+id/winscreen_body"
+	        android:layout_width="200dp"
+	        android:layout_height="125dp"
+	        android:layout_centerInParent="true"
+	        android:gravity="center"
+	        android:padding="10dp"
+	        android:background="@drawable/winscreen_body"
+	        android:orientation="vertical">
+	
+		        <View
+		            android:id="@+id/winscreen_label"
+		            android:layout_width="180dp"
+		            android:layout_height="40dp"
+		            android:layout_marginBottom="5dp"
+		            android:background="@drawable/label_you_win" />
+	
+		        <Button
+		            android:id="@+id/winscreen_restart"
+		            android:layout_width="180dp"
+		            android:layout_height="50dp"
+		            android:onClick="startNewGame" />
+	
+	    </LinearLayout>
+	    
+	    <View 
+		    android:id="@+id/winscreen_left"
+	        android:layout_width="25dp"
+	        android:layout_height="125dp"
+	        android:layout_alignTop="@id/winscreen_body"
+	        android:layout_toLeftOf="@id/winscreen_body"
+	        android:background="@drawable/winscreen_left"/>
+	    
+	    <View 
+	        android:layout_width="250dp"
+	        android:layout_height="25dp"
+	        android:layout_below="@id/winscreen_left"
+	        android:layout_alignLeft="@id/winscreen_left"
+	        android:background="@drawable/winscreen_bottom"/>
+        
+        <View
+            android:id="@+id/new_record"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@id/winscreen_body"
+            android:layout_above="@id/winscreen_body"
+            android:translationX="-30dp"
+            android:translationY="30dp"
+            android:visibility="invisible"
+            android:background="@drawable/new_best_result" />
+
+    </RelativeLayout>
+</RelativeLayout>

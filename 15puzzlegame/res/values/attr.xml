@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+	<declare-styleable name="MovesView">
+		<attr name="scale" format="float"/>
+		<attr name="moves_paddings" format="integer"/>
+		<attr name="moves_paddings_enabled" format="boolean"/>
+	</declare-styleable>
+
+	<declare-styleable name="TimerView">
+		<attr name="timer_paddings_enabled" format="boolean"/>
+		<attr name="timer_paddings" format="integer"/>
+	</declare-styleable>	
+
+	<declare-styleable name="TextLabel">
+	    <attr name="resourceId" format="integer"/>
+	</declare-styleable>	
+	
+	<declare-styleable name="LabelView">
+		<attr name="background" format="string"/>
+		<attr name="alignCenter" format="boolean"/>
+	</declare-styleable>
+</resources>
