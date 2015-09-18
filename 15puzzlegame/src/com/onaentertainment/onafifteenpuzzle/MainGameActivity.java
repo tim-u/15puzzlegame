@@ -108,7 +108,6 @@ public class MainGameActivity extends Activity {
 		
 		// Create the interstitial.
 	    interstitial = new InterstitialAd(this);
-	    interstitial.setAdUnitId("ca-app-pub-9365170775618157/3682015226");
 	    
 	    interstitial.setAdListener(new AdListener() 
 	    {
@@ -120,7 +119,7 @@ public class MainGameActivity extends Activity {
         });
 
 	    // Create ad request.
-	    adRequest = new AdRequest.Builder().addTestDevice("016dea1e4bd5b650").build();
+	    adRequest = new AdRequest.Builder().build();
 
 	    // Begin loading your interstitial.
 	    interstitial.loadAd(adRequest);
